@@ -1,0 +1,15 @@
+[Unit]
+Description=CloudDrive - Personal Cloud Storage
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/cloudrive_app
+ExecStart=/home/pi/cloudrive_app/.venv/bin/python app.py
+Restart=always
+RestartSec=5
+Environment=STORAGE_ROOT=/home/pi/cloudrive
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
